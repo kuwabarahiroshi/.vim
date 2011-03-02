@@ -1,0 +1,206 @@
+call pathogen#runtime_append_all_bundles()
+set nu
+"colorscheme BlackSea
+"set enc=euc-jp
+set enc=utf-8
+"set fenc=euc-jp fencs=euc-jp,utf-8,sjis
+set fenc=utf-8 fencs=utf-8,euc-jp,sjis
+"set fencs=iso-2022-jp,euc-jp,cp932
+"set encoding=utf-8
+"set fileformat=unix fileformats=unix,dos,mac
+"set fileencoding=utf-8 fileencodings=utf-8,sjis,euc-jp
+
+set nocompatible          " We're running Vim, not Vi!
+syntax on                 " Enable syntax highlighting
+filetype plugin indent on " Enable filetype-specific indenting and plugins
+
+""
+"personal settings
+"
+set autoindent
+set cmdheight=2
+set expandtab
+set hlsearch
+set laststatus=2
+set list
+set listchars=tab:>\
+set number
+set ruler
+set showmatch
+set title
+set ts=4 sw=4 sts=4
+set viminfo=
+set statusline=%<%f\ %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l,%c%V%8P
+set grepprg=internal
+set backspace=indent,eol,start
+set hidden
+set iminsert=0 imsearch=-1
+set incsearch hlsearch ignorecase smartcase
+set backupdir=~/.vimtmp
+set directory=~/.vimtmp
+"set backup backupdir=/home/next-cu/vimtmp
+
+"set smarttab expandtab
+"set tabstop=4 shiftwidth=4
+"set backspace=indent,eol,start
+"set statusline=[%n%{bufnr('$')>1?'/'.bufnr('$'):''}%{winnr('$')>1?':'.winnr().'/'.winnr('$'):''}] %< %f %m%r%h%w%{'['.(&fenc!=''?&fenc:&enc).']['.&ff.']'}%=%l/%L,%c%V%8P
+"set statusline=%F%m%r%h%w\%=[FORMAT=%{&ff}]\[TYPE=%Y]\%{'[ENC='.(&fenc!=''?&fenc:&enc).']'}[ASCII=\%03.3b]\[HEX=\%02.2B]\[POS=%05l/%05L,%05v][%p%%]
+
+"let g:VimShell_EnableInteractive = 1
+let g:neocomplcache_enable_at_startup = 1
+"let php_folding = 1
+
+" 現在のディレクトリから再帰的に上層のtagsファイルを探す
+set tags+=~/.tags
+" 同じ関数名があった場合、どれに飛ぶか選択できるようにする
+nnoremap <C-]> g<C-]>
+
+"taglist, tagexplorer
+let TE_Ctags_Cmd = "/usr/bin/ctags"    "ctagsのパス 
+let Tlist_Ctags_Cmd = "/usr/bin/ctags"    "ctagsのパス 
+let Tlist_Show_One_File = 1               "現在編集中のソースのタグしか表示しない 
+let Tlist_Exit_OnlyWindow = 1             "taglistのウィンドーが最後のウィンドーならばVimを閉じる 
+let Tlist_Use_Right_Window = 1            "右側でtaglistのウィンドーを表示 
+nnoremap <silent> <F8> :NERDTreeToggle<CR> "F8でNERDTreeを開閉
+nnoremap <silent> <F9> :TlistToggle<CR>    "F9でTlistを開閉
+nnoremap <silent> <leader>tl :TlistToggle<cr>  "taglistを開くショットカットキ
+nnoremap <silent> <F10> :TagExplorer<CR>   "F10でTagExplorerを開閉
+
+au! BufNewFile,BufRead *.as :set filetype=actionscript
+au! BufNewFile,BufRead *.thtml :set filetype=html
+au! BufNewFile,BufRead *.phtml :set filetype=html
+
+" PHP parser check (CTRL-L)
+":autocmd FileType php noremap <C-K> :!php -l %<CR>
+
+"autocmd BufNewFile *.html 0r ~/.vim/templates/skel.html
+"autocmd BufNewFile *.php 0r ~/.vim/templates/skel.php
+
+sign define checkpoint text=>> linehl=Warning texthl=Error
+nnoremap <C-M><C-P> :exe ":sign place ".line(".")." line=". line(".")." name=checkpoint file=" . expand("%:p")<CR>
+nnoremap <C-M><C-U> :exe ":sign unplace ".line(".")<CR>
+
+highlight statusline term=underline ctermbg=yellow guibg=yellow
+highlight lastSpaces term=underline ctermbg=yellow guibg=yellow
+highlight Tab term=underline ctermbg=blue cterm=underline gui=underline guifg=blue
+match lastSpaces /[　[:space:]]\+$/
+match Tab /\\t/
+
+"nmap tn :tabn<CR>
+"nmap tp :tabp<CR>
+
+nnoremap <silent> <C-K> :m -2<CR>
+nnoremap <silent> <C-J> :m +1<CR>
+vnoremap <silent> <C-K> :m -2<CR>v '<
+vnoremap <silent> <C-J> :m '>+1<CR>v '<
+
+noremap <Up>   gk
+noremap <Down> gj
+noremap <Home> g0
+noremap <End>  g$
+
+nnoremap <C-Up>    <C-W>k
+nnoremap <C-Down>  <C-W>j
+nnoremap <C-Left>  <C-W>h
+nnoremap <C-Right> <C-W>l
+
+nnoremap <Leader><Left>  :bp<CR>
+nnoremap <Leader><Right> :bn<CR>
+
+nnoremap <C-L> :tabn<CR>
+nnoremap <C-H> :tabp<CR>
+nnoremap <F12> :call OpenInNewTab()<CR><C-W>l :NERDTreeFind<CR><C-W>l
+function! OpenInNewTab()
+    let f = expand("%:p")
+    execute ":q"
+    execute ":tabnew ".f
+    execute ":NERDTree"
+endfunction
+
+autocmd FileType xml,html,xhtml call s:FileTypeXml()
+autocmd FileType css,php,perl,javascript call AssistCoding()
+
+
+function! AssistCoding()
+"  inoremap <buffer> ' ''<Left>
+"  inoremap <buffer> " ""<Left>
+"  inoremap <buffer> ( ()<Left>
+"  inoremap <buffer> [ []<Left>
+  inoremap <buffer> { {}<Left>
+  inoremap <buffer> <S-CR> <End>;
+endfunction
+
+function! s:FileTypeXml()
+  inoremap <buffer> =" =""<Left>
+  setlocal ts=2 sw=2 softtabstop=4 expandtab
+  if !exists('*XmlAttribCallback')
+    function XmlAttribCallback(tagName)
+      setlocal iminsert=0
+      return 0
+    endfunction
+  endif
+endfunction
+
+"function! InsertTabWrapper()
+  "let col = col('.') - 1
+  "if !col || getline('.')[col - 1] !~ '\k'
+    "return "\<TAB>"
+  "else
+    "if pumvisible()
+      "return "\<C-N>"
+    "else
+      "return "\<C-N>\<C-P>"
+    "end
+  "endif
+"endfunction
+"inoremap <tab> <c-r>=InsertTabWrapper()<cr>
+
+
+if &encoding !=# 'utf-8'
+    set encoding=japan
+    set fileencoding=japan
+endif
+if has('iconv')
+    let s:enc_euc = 'euc-jp'
+    let s:enc_jis = 'iso-2022-jp'
+    if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'eucjp-ms'
+        let s:enc_jis = 'iso-2022-jp-3'
+    elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'euc-jisx0213'
+        let s:enc_jis = 'iso-2022-jp-3'
+    endif
+    if &encoding ==# 'utf-8'
+        let s:fileencodings_default = &fileencodings
+        let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+        let &fileencodings = &fileencodings .','. s:fileencodings_default
+        unlet s:fileencodings_default
+    else
+        let &fileencodings = &fileencodings .','. s:enc_jis
+        set fileencodings+=utf-8,ucs-2le,ucs-2
+        if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
+            set fileencodings+=cp932
+            set fileencodings-=euc-jp
+            set fileencodings-=euc-jisx0213
+            set fileencodings-=eucjp-ms
+            let &encoding = s:enc_euc
+            let &fileencoding = s:enc_euc
+         else
+            let &fileencodings = &fileencodings .','. s:enc_euc
+         endif
+    endif
+    unlet s:enc_euc
+    unlet s:enc_jis
+endif
+if has('autocmd')
+    function! AU_ReCheck_FENC()
+        if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+            let &fileencoding=&encoding
+        endif
+        endfunction
+        autocmd BufReadPost * call AU_ReCheck_FENC()
+endif
+set fileformats=unix,dos,mac
+if exists('&ambiwidth')
+    set ambiwidth=double
+endif

@@ -1,6 +1,7 @@
 " -------------------
 " init
 " -------------------
+let mapleader = ","
 autocmd!
 
 " -------------------
@@ -140,9 +141,8 @@ autocmd BufEnter * execute ":lcd " .  expand("%:p:h")
 " キーバインド
 " -------------------
 " vimrc をリローダブルにする
-noremap <C-c><C-c> <C-c>
-noremap <C-c><C-e>e :edit $HOME/.vimrc<CR>
-noremap <C-c><C-e>s :source $HOME/.vimrc<CR>
+nnoremap ,erc :vsp $HOME/.vimrc<CR>
+nnoremap ,src :source $HOME/.vimrc<CR>
 
 " カーソル系
 noremap <Up>   gk
@@ -161,6 +161,10 @@ nnoremap <silent> <C-J> :m +1<CR>
 vnoremap <silent> <C-K> :m -2<CR>v '<
 vnoremap <silent> <C-J> :m '>+1<CR>v '<
 
+" 選択部分を行ごとyank, del
+vnoremap ,y <ESC>'<y'>
+vnoremap ,d <ESC>'<d'>
+
 " 検索箇所を真ん中に
 noremap n nzz
 noremap N Nzz
@@ -169,9 +173,8 @@ noremap # #zz
 noremap g* g*zz
 noremap g# g#zz
 
-noremap <Space>  /
-noremap s :%s/
-noremap ; :
+nnoremap s :%s/
+vnoremap s :s/
 noremap <C-n> :nohl<CR>
 
 "noremap <Silent> <C-c><C-w>p :set wrap<CR>
@@ -212,7 +215,7 @@ noremap bf :edit <Cfile><CR>
 "noremap <silent> bq :Kwbd<CR>
 
 " tab
-noremap tt :tabnew .
+noremap tt :tabnew .<CR>
 noremap <silent> tn :tabn<CR>
 noremap <silent> tp :tabp<CR>
 nnoremap <C-L> :tabn<CR>
@@ -245,10 +248,6 @@ endfunction
 "noremap <Silent> w= <C-w>+
 "noremap <Silent> w, <C-w><
 "noremap <Silent> w. <C-w>>
-
-" IDE
-noremap <C-i><C-i> <C-i>
-noremap <Silent> <C-i>w :Tlist<CR>
 
 " help
 noremap ,h :<C-u>help<CR>

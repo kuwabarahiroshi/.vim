@@ -141,8 +141,8 @@ autocmd BufEnter * execute ":lcd " .  expand("%:p:h")
 " キーバインド
 " -------------------
 " vimrc をリローダブルにする
-nnoremap ,erc :vsp $HOME/.vimrc<CR>
-nnoremap ,src :source $HOME/.vimrc<CR>
+nnoremap <leader>erc :vsp $HOME/.vimrc<CR>
+nnoremap <leader>src :source $HOME/.vimrc<CR>
 
 " カーソル系
 noremap <Up>   gk
@@ -162,8 +162,8 @@ vnoremap <silent> <C-K> :m -2<CR>v '<
 vnoremap <silent> <C-J> :m '>+1<CR>v '<
 
 " 選択部分を行ごとyank, del
-vnoremap ,y <ESC>'<y'>
-vnoremap ,d <ESC>'<d'>
+vnoremap <leader>y <ESC>'<y'>
+vnoremap <leader>d <ESC>'<d'>
 
 " 検索箇所を真ん中に
 noremap n nzz
@@ -173,8 +173,8 @@ noremap # #zz
 noremap g* g*zz
 noremap g# g#zz
 
-nnoremap s :%s/
-vnoremap s :s/
+nnoremap <leader>s :%s/
+vnoremap <leader>s :s/
 noremap <C-n> :nohl<CR>
 
 "noremap <Silent> <C-c><C-w>p :set wrap<CR>
@@ -191,16 +191,16 @@ noremap <C-n> :nohl<CR>
 "noremap <Silent> <S-<> <C-w><
 "noremap <Silent> <C-[> <C-t>
 "noremap <Silent> <C-]> <C-]>
-noremap ,a :abbreviate<Space>
+noremap <leader>a :abbreviate<Space>
 "noremap a iabbrev
 "noremap a cabbrev
 
 " buffer
-noremap ee :e .
-noremap bb :ls<CR>:buf<Space>
-noremap bd :buffdo
-noremap bh :set :hidden<CR>
-noremap bf :edit <Cfile><CR>
+noremap <leader>ee :e .
+noremap <leader>bb :ls<CR>:buf<Space>
+noremap <leader>bd :buffdo
+noremap <leader>bh :set :hidden<CR>
+noremap <leader>bf :edit <Cfile><CR>
 "noremap <C-b><C-b> <C-b>
 "noremap <silent> ] :bp<CR>
 "noremap <silent> [ :bn<CR>
@@ -250,11 +250,11 @@ endfunction
 "noremap <Silent> w. <C-w>>
 
 " help
-noremap ,h :<C-u>help<CR>
-noremap ,u :<C-u>help<Space><C-r><C-w><CR>
-noremap ,g :<C-u>helpgrep<Space>
-noremap ,ms :marks<CR>
-noremap ,md :delmarks!<CR>
+noremap <leader>h :<C-u>help<CR>
+noremap <leader>u :<C-u>help<Space><C-r><C-w><CR>
+noremap <leader>g :<C-u>helpgrep<Space>
+noremap <leader>ms :marks<CR>
+noremap <leader>md :delmarks!<CR>
 
 " foldmethod
 "noremap <silent> <C-f><C-f> zA
@@ -268,8 +268,8 @@ noremap <C-c><C-g>l :undolist<CR>
 noremap <C-c><C-g>e :undo NODE_NUMBER<CR>
 
 " paste mode
-noremap ,po :set paste<CR>
-noremap ,pn :set nopaste<CR>
+noremap <leader>po :set paste<CR>
+noremap <leader>pn :set nopaste<CR>
 
 " Command
 "inoremap <expr> <C-d>f strftime('%Y-%m-%dT%H:%M:%S')

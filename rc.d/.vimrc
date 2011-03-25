@@ -22,9 +22,6 @@ endif
 " Language
 " -------------------
 set encoding=utf-8
-"set encoding=euc-jp
-set termencoding=utf-8
-"set termencoding=eud-jp
 set fileencoding=utf-8
 set fileencodings=utf-8,euc-jp,iso-2022-jp,cp932
 set fileformat=unix
@@ -141,8 +138,8 @@ autocmd BufEnter * execute ":lcd " .  expand("%:p:h")
 " キーバインド
 " -------------------
 " vimrc をリローダブルにする
-nnoremap <leader>erc :vsp $HOME/.vimrc<CR>
-nnoremap <leader>src :source $HOME/.vimrc<CR>
+nnoremap ,erc :vsp $HOME/.vimrc<CR>
+nnoremap ,src :source $HOME/.vimrc<CR>
 
 " カーソル系
 noremap <Up>   gk
@@ -162,8 +159,8 @@ vnoremap <silent> <C-K> :m -2<CR>v '<
 vnoremap <silent> <C-J> :m '>+1<CR>v '<
 
 " 選択部分を行ごとyank, del
-vnoremap <leader>y <ESC>'<y'>
-vnoremap <leader>d <ESC>'<d'>
+vnoremap ,y <ESC>'<y'>
+vnoremap ,d <ESC>'<d'>
 
 " 検索箇所を真ん中に
 noremap n nzz
@@ -173,8 +170,8 @@ noremap # #zz
 noremap g* g*zz
 noremap g# g#zz
 
-nnoremap <leader>s :%s/
-vnoremap <leader>s :s/
+nnoremap s :%s/
+vnoremap s :s/
 noremap <C-n> :nohl<CR>
 
 "noremap <Silent> <C-c><C-w>p :set wrap<CR>
@@ -191,16 +188,16 @@ noremap <C-n> :nohl<CR>
 "noremap <Silent> <S-<> <C-w><
 "noremap <Silent> <C-[> <C-t>
 "noremap <Silent> <C-]> <C-]>
-noremap <leader>a :abbreviate<Space>
+noremap ,a :abbreviate<Space>
 "noremap a iabbrev
 "noremap a cabbrev
 
 " buffer
-noremap <leader>ee :e .
-noremap <leader>bb :ls<CR>:buf<Space>
-noremap <leader>bd :buffdo
-noremap <leader>bh :set :hidden<CR>
-noremap <leader>bf :edit <Cfile><CR>
+noremap ee :e .
+noremap bb :ls<CR>:buf<Space>
+noremap bd :buffdo
+noremap bh :set :hidden<CR>
+noremap bf :edit <Cfile><CR>
 "noremap <C-b><C-b> <C-b>
 "noremap <silent> ] :bp<CR>
 "noremap <silent> [ :bn<CR>
@@ -250,11 +247,11 @@ endfunction
 "noremap <Silent> w. <C-w>>
 
 " help
-noremap <leader>h :<C-u>help<CR>
-noremap <leader>u :<C-u>help<Space><C-r><C-w><CR>
-noremap <leader>g :<C-u>helpgrep<Space>
-noremap <leader>ms :marks<CR>
-noremap <leader>md :delmarks!<CR>
+noremap ,h :<C-u>help<CR>
+noremap ,u :<C-u>help<Space><C-r><C-w><CR>
+noremap ,g :<C-u>helpgrep<Space>
+noremap ,ms :marks<CR>
+noremap ,md :delmarks!<CR>
 
 " foldmethod
 "noremap <silent> <C-f><C-f> zA
@@ -268,8 +265,8 @@ noremap <C-c><C-g>l :undolist<CR>
 noremap <C-c><C-g>e :undo NODE_NUMBER<CR>
 
 " paste mode
-noremap <leader>po :set paste<CR>
-noremap <leader>pn :set nopaste<CR>
+noremap ,po :set paste<CR>
+noremap ,pn :set nopaste<CR>
 
 " Command
 "inoremap <expr> <C-d>f strftime('%Y-%m-%dT%H:%M:%S')
@@ -376,13 +373,12 @@ function! NewUpdate()
    endif
 endfunction
 
-" encoding
-command! Cp932 edit ++enc=cp932
-command! Eucjp edit ++enc=euc-jp
-command! Iso2022jp edit ++enc=iso-2022-jp
-command! UTF8 edit ++enc=utf-8
-command! Jis Iso2022jp
-command! Sjis Cp932
+"command! Cp932 edit ++enc=cp932
+"command! Eucjp edit ++enc=euc-jp
+"command! Iso2022jp edit ++enc=iso-2022-jp
+"command! UTF8 edit ++enc=utf-8
+"command! Jis Iso2022jp
+"command! Sjis Cp932
 
 " cd
 command! -complete=customlist,CompleteCD -nargs=? CD cd <args>
@@ -391,3 +387,53 @@ function! CompleteCD(arglead, cmdline, cursorpos)
     return split(globpath(&cdpath, pattern), "\n")
 endfunction
 cnoreabbrev <expr> cd (getcmdtype() == ':' && getcmdline() ==# 'cd') ? 'CD' : 'cd'
+
+" encoding
+if &encoding !=# 'utf-8'
+    set encoding=japan
+    set fileencoding=japan
+endif
+if has('iconv')
+    let s:enc_euc = 'euc-jp'
+    let s:enc_jis = 'iso-2022-jp'
+    if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'eucjp-ms'
+        let s:enc_jis = 'iso-2022-jp-3'
+    elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
+        let s:enc_euc = 'euc-jisx0213'
+        let s:enc_jis = 'iso-2022-jp-3'
+    endif
+    if &encoding ==# 'utf-8'
+        let s:fileencodings_default = &fileencodings
+        let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
+        let &fileencodings = &fileencodings .','. s:fileencodings_default
+        unlet s:fileencodings_default
+    else
+        let &fileencodings = &fileencodings .','. s:enc_jis
+        set fileencodings+=utf-8,ucs-2le,ucs-2
+        if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
+            set fileencodings+=cp932
+            set fileencodings-=euc-jp
+            set fileencodings-=euc-jisx0213
+            set fileencodings-=eucjp-ms
+            let &encoding = s:enc_euc
+            let &fileencoding = s:enc_euc
+         else
+            let &fileencodings = &fileencodings .','. s:enc_euc
+         endif
+    endif
+    unlet s:enc_euc
+    unlet s:enc_jis
+endif
+if has('autocmd')
+    function! AU_ReCheck_FENC()
+        if &fileencoding =~# 'iso-2022-jp' && search("[^\x01-\x7e]", 'n') == 0
+            let &fileencoding=&encoding
+        endif
+        endfunction
+        autocmd BufReadPost * call AU_ReCheck_FENC()
+endif
+set fileformats=unix,dos,mac
+if exists('&ambiwidth')
+    set ambiwidth=double
+endif

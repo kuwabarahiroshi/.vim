@@ -22,3 +22,6 @@
 [submodule "bundle/ZenCoding.vim"]
 	path = bundle/ZenCoding.vim
 	url = https://github.com/vim-scripts/ZenCoding.vim.git
+[submodule "etc/vimpager"]
+	path = etc/vimpager
+	url = https://github.com/rkitover/vimpager.git

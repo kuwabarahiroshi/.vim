@@ -174,6 +174,9 @@ nnoremap s :%s/
 vnoremap s :s/
 noremap <C-n> :nohl<CR>
 
+" ファイルのフルパス表示
+nnoremap <silent> <leader>fp :echo expand("%:p")<CR>
+
 "noremap <Silent> <C-c><C-w>p :set wrap<CR>
 "noremap <Silent> <C-c><C-w>n :set nowrap<CR>
 "
@@ -217,7 +220,7 @@ noremap <silent> tn :tabn<CR>
 noremap <silent> tp :tabp<CR>
 nnoremap <C-L> :tabn<CR>
 nnoremap <C-H> :tabp<CR>
-nnoremap <F12> :call OpenInNewTab()<CR><C-W>l :NERDTreeFind<CR><C-W>l
+nnoremap <leader>t :call OpenInNewTab()<CR><C-W>l :NERDTreeFind<CR><C-W>l
 function! OpenInNewTab()
     let f = expand("%:p")
     execute ":q"

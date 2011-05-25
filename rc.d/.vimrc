@@ -73,7 +73,7 @@ set wildmode=full:list
 set showmatch "対応する括弧を強調表示
 set cindent   "Cのインデント
 set foldmethod=syntax
-set grepprg=internal "内蔵grep
+set grepprg=grep\ -rnH "外部grep
 
 " -------------------
 " Mouse
@@ -132,6 +132,7 @@ filetype plugin on "ファイルタイプによるプラグインを使う
 autocmd BufNewFile * silent! 0r $VIMHOME/templates/%:e.tpl
 " バッファを開いた時に、カレントディレクトリを自動で移動
 autocmd BufEnter * execute ":lcd " .  expand("%:p:h")
+autocmd BufNewFile,BufRead *.twig set filetype=html
 
 
 " -------------------
@@ -151,6 +152,18 @@ nnoremap <C-Up>    <C-W>k
 nnoremap <C-Down>  <C-W>j
 nnoremap <C-Left>  <C-W>h
 nnoremap <C-Right> <C-W>l
+
+" インデント
+vnoremap <silent> < < v '>
+vnoremap <silent> > > v '>
+nnoremap <leader>i1 :set tabstop=1<CR>:set shiftwidth=1<CR>
+nnoremap <leader>i2 :set tabstop=2<CR>:set shiftwidth=2<CR>
+nnoremap <leader>i3 :set tabstop=3<CR>:set shiftwidth=3<CR>
+nnoremap <leader>i4 :set tabstop=4<CR>:set shiftwidth=4<CR>
+vmap <leader>i1 <ESC><leader>i1 '< v '>
+vmap <leader>i2 <ESC><leader>i2 '< v '>
+vmap <leader>i3 <ESC><leader>i3 '< v '>
+vmap <leader>i4 <ESC><leader>i4 '< v '>
 
 " 行の移動
 nnoremap <silent> <C-K> :m -2<CR>
@@ -282,7 +295,7 @@ noremap <leader>pn :set nopaste<CR>
 " -------------------
 "Debugger
 let g:debuggerPort = 9900
-let g:debuggerMaxDepth = 10
+let g:debuggerMaxDepth = 3
 
 "ZenCoding
 let g:user_zen_settings = {

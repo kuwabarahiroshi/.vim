@@ -204,16 +204,16 @@ nnoremap <silent> <leader>fp :echo expand("%:p")<CR>
 "noremap <Silent> <S-<> <C-w><
 "noremap <Silent> <C-[> <C-t>
 "noremap <Silent> <C-]> <C-]>
-noremap <leader>a :abbreviate<Space>
+"noremap <leader>a :abbreviate<Space>
 "noremap a iabbrev
 "noremap a cabbrev
 
 " buffer
-noremap ee :e .
-noremap bb :ls<CR>:buf<Space>
-noremap bd :buffdo
-noremap bh :set :hidden<CR>
-noremap bf :edit <Cfile><CR>
+"noremap ee :e .
+"noremap bb :ls<CR>:buf<Space>
+"noremap bd :buffdo
+"noremap bh :set :hidden<CR>
+"noremap bf :edit <Cfile><CR>
 "noremap <C-b><C-b> <C-b>
 "noremap <silent> ] :bp<CR>
 "noremap <silent> [ :bn<CR>

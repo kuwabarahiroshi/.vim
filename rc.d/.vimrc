@@ -106,7 +106,7 @@ set statusline=[%L]\ %t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/
 " -------------------
 " Window
 " -------------------
-set splitright "Window Split時に新Windowを右に表示
+" set splitright "Window Split時に新Windowを右に表示
 set splitbelow "Window Split時に新Window下をに表示
 
 " -------------------

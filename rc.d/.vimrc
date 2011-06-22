@@ -183,8 +183,8 @@ noremap # #zz
 noremap g* g*zz
 noremap g# g#zz
 
-nnoremap s :%s/
-vnoremap s :s/
+nnoremap <leader>ss :%s/
+vnoremap <leader>ss :s/
 noremap <C-n> :nohl<CR>
 
 " ファイルのフルパス表示

@@ -189,7 +189,7 @@ noremap <C-n> :nohl<CR>
 
 " ファイルのフルパス表示
 nnoremap <silent> <leader>fp :echo expand("%:p")<CR>
-nnoremap <silent> <leader>cc :let f=expand("%:p")<CR>:q<CR>
+nnoremap <silent> <leader>cp :let f=expand("%:p")<CR>:q<CR>
 nnoremap <silent> <leader>sp :exec ":sp ".f<CR>
 nnoremap <silent> <leader>vsp :exec ":vsp ".f<CR>
 

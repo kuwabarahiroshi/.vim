@@ -2,6 +2,8 @@
 " init
 " -------------------
 let mapleader = ","
+let twitvim_login = "kuwabarahiroshi:h04e220839258348"
+let g:reload_url = "http://sandbox.io:8800/euG130WkPL4PC9Am_ei0Fw"
 autocmd!
 
 " -------------------
@@ -183,6 +185,8 @@ noremap # #zz
 noremap g* g*zz
 noremap g# g#zz
 
+nnoremap <silent> <leader>ee :!./%<CR>
+
 nnoremap <leader>ss :%s/
 vnoremap <leader>ss :s/
 noremap <C-n> :nohl<CR>
@@ -192,6 +196,12 @@ nnoremap <silent> <leader>fp :echo expand("%:p")<CR>
 nnoremap <silent> <leader>cp :let f=expand("%:p")<CR>:q<CR>
 nnoremap <silent> <leader>sp :exec ":sp ".f<CR>
 nnoremap <silent> <leader>vsp :exec ":vsp ".f<CR>
+
+function! ConfigureReloadUrl(url)
+    let g:reload_url = a:url
+endfunction
+com! -nargs=1 ReloadUrl call ConfigureReloadUrl(<f-args>)
+nnoremap <silent> <leader>r :let dev_null = system("curl ".g:reload_url)<CR>
 
 "noremap <Silent> <C-c><C-w>p :set wrap<CR>
 "noremap <Silent> <C-c><C-w>n :set nowrap<CR>

@@ -143,12 +143,12 @@ autocmd BufNewFile,BufRead *.twig set filetype=html
 " キーバインド
 " -------------------
 " Simplenote
-nnoremap <leader>sl :Simplenote -l<CR>
-nnoremap <leader>su :Simplenote -u<CR>
-nnoremap <leader>sd :Simplenote -d<CR>
-nnoremap <leader>sD :Simplenote -D<CR>
-nnoremap <leader>sn :Simplenote -n<CR>
-nnoremap <leader>st :Simplenote -t<CR>
+nnoremap <leader>sD :VimpleNote -D<CR>
+nnoremap <leader>sd :VimpleNote -d<CR>
+nnoremap <leader>sl :VimpleNote -l<CR>
+nnoremap <leader>sn :VimpleNote -n<CR>
+nnoremap <leader>st :VimpleNote -t<CR>
+nnoremap <leader>su :VimpleNote -u<CR>
 
 " vimrc をリローダブルにする
 nnoremap <leader>erc :vsp $HOME/.vimrc<CR>

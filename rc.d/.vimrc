@@ -2,8 +2,10 @@
 " init
 " -------------------
 let mapleader = ","
-let twitvim_login = "kuwabarahiroshi:h04e220839258348"
+let twitvim_login = ""
 let g:reload_url = "http://sandbox.io:8800/euG130WkPL4PC9Am_ei0Fw"
+let g:SimplenoteUsername = ""
+let g:SimplenotePassword = ""
 autocmd!
 
 " -------------------

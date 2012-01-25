@@ -3,7 +3,7 @@
 " -------------------
 let mapleader = ","
 let twitvim_login = ""
-let g:reload_url = "http://sandbox.io:8800/euG130WkPL4PC9Am_ei0Fw"
+let g:reload_url = "set me"
 let g:SimplenoteUsername = ""
 let g:SimplenotePassword = ""
 autocmd!
@@ -207,11 +207,14 @@ nnoremap <silent> <leader>cp :let f=expand("%:p")<CR>:q<CR>
 nnoremap <silent> <leader>sp :exec ":sp ".f<CR>
 nnoremap <silent> <leader>vsp :exec ":vsp ".f<CR>
 
-function! ConfigureReloadUrl(url)
-    let g:reload_url = a:url
+function! Reload()
+    if g:reload_url == "set me"
+        let g:reload_url = input('ReloadUrl: ')
+    endif
+    let dev_null = system("curl ".g:reload_url." &")
+    echo "reload request sent"
 endfunction
-com! -nargs=1 ReloadUrl call ConfigureReloadUrl(<f-args>)
-nnoremap <silent> <leader>r :let dev_null = system("curl ".g:reload_url)<CR>
+nnoremap <silent> <leader>r :call Reload()<CR>
 
 "noremap <Silent> <C-c><C-w>p :set wrap<CR>
 "noremap <Silent> <C-c><C-w>n :set nowrap<CR>

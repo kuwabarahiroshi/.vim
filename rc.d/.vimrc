@@ -197,8 +197,8 @@ noremap g# g#zz
 
 nnoremap <silent> <leader>ee :!./%<CR>
 
-nnoremap <leader>ss :%s/
-vnoremap <leader>ss :s/
+nnoremap <silent> <leader>ss :%s/color="\(#.*\)"/\1/g<CR>
+inoremap <silent> <leader>ss :s/
 noremap <C-n> :nohl<CR>
 
 " ファイルのフルパス表示

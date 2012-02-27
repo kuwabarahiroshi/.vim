@@ -137,6 +137,9 @@ autocmd BufNewFile * silent! 0r $VIMHOME/templates/%:e.tpl
 " バッファを開いた時に、カレントディレクトリを自動で移動
 autocmd BufEnter * execute ":lcd " .  expand("%:p:h")
 autocmd BufNewFile,BufRead *.twig set filetype=html
+autocmd FileType less set shiftwidth=2 tabstop=2
+autocmd FileType html set shiftwidth=2 tabstop=2
+autocmd FileType javascript set shiftwidth=2 tabstop=2
 
 
 " -------------------

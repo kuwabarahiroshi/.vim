@@ -219,6 +219,16 @@ function! Reload()
 endfunction
 nnoremap <silent> <leader>r :call Reload()<CR>
 
+function! ToggleVerticalLineAtCursorColumn()
+    if &cc != 0
+        set colorcolumn=0
+    else
+        let g:current_column = get(getpos('.'), 2)
+        let &colorcolumn = g:current_column
+    endif
+endfunction
+nnoremap <silent> <C-\> :call ToggleVerticalLineAtCursorColumn()<CR>
+
 "noremap <Silent> <C-c><C-w>p :set wrap<CR>
 "noremap <Silent> <C-c><C-w>n :set nowrap<CR>
 "
@@ -351,6 +361,7 @@ let Tlist_Ctags_Cmd = "/usr/bin/ctags"    "ctagsのパス
 let Tlist_Show_One_File = 1               "現在編集中のソースのタグしか表示しない 
 let Tlist_Exit_OnlyWindow = 1             "taglistのウィンドーが最後のウィンドーならばVimを閉じる 
 let Tlist_Use_Right_Window = 1            "右側でtaglistのウィンドーを表示 
+nnoremap <silent> <leader>f :NERDTreeFind<CR>
 nnoremap <silent> <F8> :NERDTreeToggle<CR> "F8でNERDTreeを開閉
 nnoremap <silent> <F9> :TlistToggle<CR>    "F9でTlistを開閉
 nnoremap <silent> <leader>tl :TlistToggle<cr>  "taglistを開くショットカットキ

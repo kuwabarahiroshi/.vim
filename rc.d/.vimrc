@@ -21,6 +21,8 @@ if v:version >= 700
  set cursorline   "カーソル行を強調
  highlight CursorLine guibg=lightblue ctermbg=lightgray
 endif
+set modeline
+set modelines=5
 
 " -------------------
 " Language
@@ -140,6 +142,7 @@ autocmd BufNewFile,BufRead *.twig set filetype=html
 autocmd FileType less set shiftwidth=2 tabstop=2
 autocmd FileType html set shiftwidth=2 tabstop=2
 autocmd FileType javascript set shiftwidth=2 tabstop=2
+autocmd FileType php set shiftwidth=4 tabstop=4
 
 
 " -------------------

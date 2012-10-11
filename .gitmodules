@@ -36,7 +36,7 @@
 	url = git://github.com/groenewege/vim-less.git
 [submodule "bundle/yaml-vim"]
 	path = bundle/yaml-vim
-	url = git@github.com:kuwabarahiroshi/yaml-vim.git
+	url = git://github.com/kuwabarahiroshi/yaml-vim.git
 [submodule "bundle/JSON.vim"]
 	path = bundle/JSON.vim
 	url = git://github.com/kuwabarahiroshi/JSON.vim.git

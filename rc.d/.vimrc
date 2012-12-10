@@ -23,6 +23,8 @@ if v:version >= 700
 endif
 set modeline
 set modelines=5
+set mouse=niv
+set clipboard=unnamed
 
 " -------------------
 " Language

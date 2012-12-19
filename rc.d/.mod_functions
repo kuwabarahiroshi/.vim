@@ -1,0 +1,51 @@
+" vim:ft=vim
+
+"
+"
+"
+function! ToggleVerticalLineAtCursorColumn()
+    if &cc != 0
+        set colorcolumn=0
+    else
+        let g:current_column = get(getpos('.'), 2)
+        let &colorcolumn = g:current_column
+    endif
+endfunction
+
+"
+"
+"
+function! OpenInNewTab()
+    let f = expand("%:p")
+    execute ":q"
+    execute ":tabnew ".f
+    execute ":NERDTree"
+endfunction
+
+"
+"
+"
+function! ExecCurrentBuffer()
+    if match(expand("%:p"), "spec.rb") > 0
+        exec ":lcd " . expand("%:p:h")
+        :QuickRun
+    else
+        :!./%
+    endif
+endfunction
+
+""
+""
+""
+"let s:outputter = quickrun#outputter#buffered#new()
+"let s:outputter.kind = "outputter"
+"let s:outputter.name = "ansi_buffer"
+"function! s:outputter.init(session)
+  "call call(quickrun#outputter#buffer#new().init,  [a:session],  self)
+"endfunction
+"function! s:outputter.finish(session)
+  "call call(quickrun#outputter#buffer#new().finish,  [a:session], self)
+  ":AnsiEsc
+"endfunction
+"call quickrun#module#register(s:outputter, 1)
+"unlet s:outputter

@@ -1,0 +1,35 @@
+" vim:ft=vim
+
+" NeoBundle config
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+    call neobundle#rc(expand('~/.vim/bundle/'))
+endif
+
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimfiler.git'
+"NeoBundle 'Shougo/neocomplcache'
+"NeoBundle 'Shougo/neosnippet'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'scrooloose/syntastic'
+NeoBundle 'scrooloose/nerdcommenter.git'
+NeoBundle 'tpope/vim-endwise'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle 'ingydotnet/yaml-vim'
+NeoBundle 'groenewege/vim-less.git'
+NeoBundle 'vim-scripts/ruby-matchit'
+NeoBundle 'vim-scripts/JSON.vim'
+NeoBundle 'vim-scripts/AnsiEsc.vim'
+NeoBundle 'mattn/webapi-vim'
+NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'kchmck/vim-coffee-script'
+NeoBundle 'git://repo.or.cz/vcscommand'
+
+" Auto install
+if neobundle#exists_not_installed_bundles()
+  NeoBundleInstall
+endif

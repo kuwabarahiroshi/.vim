@@ -1,0 +1,20 @@
+" vim: ft=vim
+let mapleader = ","
+let g:mapleader = ","
+
+"Debugger
+let g:debuggerPort = 9900
+let g:debuggerMaxDepth = 3
+
+"ZenCoding
+let g:user_zen_leader_key = '<leader>z'
+let g:user_zen_settings = {
+      \'indentation' : '  ',
+      \'lang' : 'ja'
+      \}
+let g:quickrun_config = {}
+let g:quickrun_config['ruby.rspec'] = {
+      \'command': 'rspec',
+      \'cmdopt': '--tty -cfs',
+      \'runner': 'vimproc'
+      \}

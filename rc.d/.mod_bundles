@@ -29,6 +29,7 @@ NeoBundle 'vim-scripts/Trinity'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'StanAngeloff/php.vim'
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'git://repo.or.cz/vcscommand'
 

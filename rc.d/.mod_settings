@@ -6,6 +6,7 @@ set backup
 set backupdir=$HOME/.vimtmp
 set clipboard=unnamed
 set cursorline
+set diffopt+=iwhite
 set directory=$HOME/.vimtmp
 set expandtab
 set foldmethod=syntax

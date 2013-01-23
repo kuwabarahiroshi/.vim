@@ -36,6 +36,7 @@ set splitright
 set splitbelow
 set statusline=%t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
 set tabstop=2
+set tags=.tags;
 set title
 set updatetime=500
 set wrapscan
@@ -44,9 +45,10 @@ set wrapscan
 syntax on
 colorscheme jellybeans
 "highlight CursorLine guibg=lightblue ctermbg=lightgray
+highlight StatusLine ctermbg=darkgray ctermfg=blue
 highlight SpecialKey ctermfg=darkgray
 filetype plugin indent on
-autocmd BufEnter * execute ":lcd " .  expand("%:p:h")
+autocmd BufEnter * execute ":lcd " . expand("%:p:h")
 autocmd FileType php set shiftwidth=4 tabstop=4
 autocmd BufNewFile,BufRead *.twig set filetype=html
 autocmd BufEnter,BufNewFile *_spec.rb set filetype=ruby.rspec

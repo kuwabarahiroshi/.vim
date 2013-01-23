@@ -38,3 +38,14 @@ set tabstop=2
 set title
 set updatetime=500
 set wrapscan
+
+" Misc
+syntax on
+colorscheme jellybeans
+"highlight CursorLine guibg=lightblue ctermbg=lightgray
+highlight SpecialKey ctermfg=darkgray
+filetype plugin indent on
+autocmd BufEnter * execute ":lcd " .  expand("%:p:h")
+autocmd FileType php set shiftwidth=4 tabstop=4
+autocmd BufNewFile,BufRead *.twig set filetype=html
+autocmd BufEnter,BufNewFile *_spec.rb set filetype=ruby.rspec

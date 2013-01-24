@@ -4,7 +4,7 @@ set autowrite
 set backspace=indent,eol,start
 set backup
 set backupdir=$HOME/.vimtmp
-set clipboard=unnamed
+set clipboard=unnamedplus,unnamed
 set cursorline
 set diffopt+=iwhite
 set directory=$HOME/.vimtmp

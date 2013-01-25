@@ -22,9 +22,9 @@ nnoremap <silent> <leader>sp :exec ":sp ".f<CR>
 nnoremap <silent> <leader>vsp :exec ":vsp ".f<CR>
 noremap # #Nzz
 noremap * *Nzz
-noremap <C-n> :nohl<CR>
-noremap <leader>pn :set nopaste<CR>
-noremap <leader>po :set paste<CR>
+noremap <leader>nh :nohl<CR>
+noremap <leader>np :set nopaste<CR>
+noremap <leader>pa :set paste<CR>
 noremap <silent> tn :tabn<CR>
 noremap <silent> tp :tabp<CR>
 noremap N Nzz

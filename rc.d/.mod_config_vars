@@ -21,3 +21,7 @@ let g:quickrun_config['ruby.rspec'] = {
 
 "VCSCommand
 let g:VCSCommandMapPrefix = '<leader>g'
+
+"YankRing
+let g:yankring_replace_n_pkey = 'cn'
+let g:yankring_replace_n_nkey = 'cp'

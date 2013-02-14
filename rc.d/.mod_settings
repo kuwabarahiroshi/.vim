@@ -10,6 +10,7 @@ set diffopt+=iwhite
 set directory=~/.vim/tmp/swap
 set expandtab
 set foldmethod=syntax
+set foldnestmax=3
 set formatoptions+=mM
 set hidden
 set history=10000
@@ -22,7 +23,7 @@ set listchars=tab:>-,trail:-,extends:<,precedes:<
 set modeline
 set modelines=5
 set mouse=niv
-set nocompatible
+set nofoldenable
 set number
 set ruler
 set scrolloff=3

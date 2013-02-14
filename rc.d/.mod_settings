@@ -3,11 +3,11 @@ set autoindent
 set autowrite
 set backspace=indent,eol,start
 set backup
-set backupdir=$HOME/.vimtmp
+set backupdir=~/.vim/tmp/backup
 set clipboard=unnamedplus,unnamed
 set cursorline
 set diffopt+=iwhite
-set directory=$HOME/.vimtmp
+set directory=~/.vim/tmp/swap
 set expandtab
 set foldmethod=syntax
 set formatoptions+=mM
@@ -38,6 +38,8 @@ set statusline=%t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
 set tabstop=2
 set tags=.tags;
 set title
+set undodir=~/.vim/tmp/undo
+set undofile
 set updatetime=500
 set wrapscan
 

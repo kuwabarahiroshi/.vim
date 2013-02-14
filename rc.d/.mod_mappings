@@ -13,7 +13,7 @@ nnoremap <leader>t :call OpenInNewTab()<CR><C-W>l :NERDTreeFind<CR><C-W>l
 nnoremap <silent> <C-J> :m +1<CR>
 nnoremap <silent> <C-K> :m -2<CR>
 nnoremap <silent> <C-\> :call ToggleVerticalLineAtCursorColumn()<CR>
-nnoremap <silent> \| :call ToggleVerticalLineAt80Column()<CR>
+nnoremap <silent> \| :call ToggleVerticalLineAtIdealColumn()<CR>
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
 nnoremap <silent> <leader>cp :let f=expand("%:p")<CR>:q<CR>
 nnoremap <silent> <leader>f :NERDTreeFind<CR>

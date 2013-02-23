@@ -6,6 +6,7 @@ if has('vim_starting')
     call neobundle#rc(expand('~/.vim/bundle/'))
 endif
 
+NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'git://repo.or.cz/vcscommand'
 NeoBundle 'gregsexton/MatchTag'
 NeoBundle 'groenewege/vim-less.git'
@@ -30,6 +31,7 @@ NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'vim-scripts/JSON.vim'
 NeoBundle 'vim-scripts/matchit.zip'
+NeoBundle 'vim-scripts/SQLUtilities'
 NeoBundle 'vim-scripts/SrcExpl'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'vim-scripts/Trinity'

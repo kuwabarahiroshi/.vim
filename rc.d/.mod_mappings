@@ -35,8 +35,6 @@ vmap <leader>i1 <ESC><leader>i1 '< v '>
 vmap <leader>i2 <ESC><leader>i2 '< v '>
 vmap <leader>i3 <ESC><leader>i3 '< v '>
 vmap <leader>i4 <ESC><leader>i4 '< v '>
-vnoremap <leader>d <ESC>'<d'>
-vnoremap <leader>y <ESC>'<y'>
 vnoremap <silent> < < v '>
 vnoremap <silent> <C-J> :m '>+1<CR>v '<
 vnoremap <silent> <C-K> :m -2<CR>v '<

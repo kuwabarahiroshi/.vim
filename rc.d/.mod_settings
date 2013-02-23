@@ -33,7 +33,6 @@ set showmatch
 set smartcase
 set smartindent
 set softtabstop=0
-set splitright
 set splitbelow
 set statusline=%t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
 set tabstop=2

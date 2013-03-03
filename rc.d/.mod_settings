@@ -55,3 +55,5 @@ autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType sh,cpp,perl,javascript,ruby,ruby.rspec,python,php,erlang,haskell,scheme setlocal textwidth=80
 autocmd BufNewFile,BufRead *.twig set filetype=html
 autocmd BufEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+autocmd BufLeave * setlocal nocursorline
+autocmd BufEnter * setlocal cursorline

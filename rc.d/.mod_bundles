@@ -8,6 +8,7 @@ endif
 
 NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'git://repo.or.cz/vcscommand'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'gregsexton/MatchTag'
 NeoBundle 'groenewege/vim-less.git'
 NeoBundle 'ingydotnet/yaml-vim'

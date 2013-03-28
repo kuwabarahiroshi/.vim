@@ -15,3 +15,10 @@ That's it!
 
 ## Caveats
 If you already have your own `~/.vim` directory, Please back it up beforehand.
+
+## Plugins
+Plugins which I'm using are listed at:
+
+[rc.d/mod_bundles](rc.d/.mod_bundles)
+
+To add plugins, please refer to [NeoBundle.vim](https://github.com/Shougo/neobundle.vim) guidance.

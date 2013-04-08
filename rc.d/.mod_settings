@@ -10,7 +10,7 @@ set diffopt+=iwhite
 set directory=~/.vim/tmp/swap
 set expandtab
 set foldmethod=syntax
-set foldnestmax=3
+set foldnestmax=4
 set formatoptions+=mM
 set hidden
 set history=10000

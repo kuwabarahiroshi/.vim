@@ -45,6 +45,19 @@ function! ExecCurrentBuffer()
     endif
 endfunction
 
+"
+"
+"
+function! AckPrompt()
+    let cwd = getcwd()
+    let ack_arg = input('Ack (' . cwd . '): ')
+
+    if ack_arg != ''
+        :tabnew
+        exec ":Ack " . ack_arg
+    endif
+endfunction
+
 ""
 ""
 ""

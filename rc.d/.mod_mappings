@@ -1,5 +1,6 @@
 " vim:ft=vim
 
+nnoremap <C-A> :call AckPrompt()<CR>
 nnoremap <C-H> :tabp<CR>
 nnoremap <C-L> :tabn<CR>
 nnoremap <leader>ee :call ExecCurrentBuffer()<CR>

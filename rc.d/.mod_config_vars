@@ -25,3 +25,6 @@ let g:VCSCommandMapPrefix = '<leader>g'
 "YankRing
 let g:yankring_replace_n_pkey = 'cn'
 let g:yankring_replace_n_nkey = 'cp'
+
+"Git gutter diff options
+let g:gitgutter_diff_args = '-w'

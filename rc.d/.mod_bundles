@@ -38,7 +38,6 @@ NeoBundle 'vim-scripts/SQLUtilities'
 NeoBundle 'vim-scripts/SrcExpl'
 NeoBundle 'vim-scripts/taglist.vim'
 NeoBundle 'vim-scripts/Trinity'
-NeoBundle 'vim-scripts/YankRing.vim'
 
 " Auto install
 NeoBundleCheck

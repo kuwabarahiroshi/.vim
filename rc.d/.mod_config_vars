@@ -28,3 +28,6 @@ let g:yankring_replace_n_nkey = 'cp'
 
 "Git gutter diff options
 let g:gitgutter_diff_args = '-w'
+
+" auto enable vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1

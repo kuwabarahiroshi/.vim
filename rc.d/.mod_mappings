@@ -1,5 +1,6 @@
 " vim:ft=vim
 
+inoremap <silent> <C-\> a<ESC>:call ToggleVerticalLineAtCursorColumn()<CR>a<BS>
 nnoremap <C-A> :call AckPrompt()<CR>
 nnoremap <C-H> :tabp<CR>
 nnoremap <C-L> :tabn<CR>
@@ -40,3 +41,5 @@ vnoremap <silent> < < v '>
 vnoremap <silent> <C-J> :m '>+1<CR>v '<
 vnoremap <silent> <C-K> :m -2<CR>v '<
 vnoremap <silent> > > v '>
+vnoremap <silent> <C-\> <ESC>:call ToggleVerticalLineAtCursorColumn()<CR>gv
+vnoremap <silent> \| <ESC>:call ToggleVerticalLineAtIdealColumn()<CR>gv

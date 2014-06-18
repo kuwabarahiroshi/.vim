@@ -46,11 +46,11 @@ set wrapscan
 " Misc
 syntax on
 colorscheme jellybeans
-"highlight CursorLine guibg=lightblue ctermbg=lightgray
 highlight StatusLine ctermbg=darkgray ctermfg=blue
 highlight SpecialKey ctermfg=darkgray
 filetype plugin indent on
 "autocmd BufEnter * execute ":lcd " . expand("%:p:h")
+autocmd FileType cs setlocal noexpandtab
 autocmd FileType php setlocal shiftwidth=4 tabstop=4
 autocmd FileType sh,cpp,perl,javascript,ruby,ruby.rspec,python,php,erlang,haskell,scheme setlocal textwidth=80
 autocmd BufNewFile,BufRead *.twig set filetype=html

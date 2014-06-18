@@ -42,7 +42,6 @@ vnoremap <silent> <C-\> <ESC>:call ToggleVerticalLineAtCursorColumn()<CR>gv
 vnoremap <silent> \| <ESC>:call ToggleVerticalLineAtIdealColumn()<CR>gv
 
 " yankround
-nnoremap <silent> <C-Y> :CtrlPYankRound<CR>
 nmap p <Plug>(yankround-p)
 xmap p <Plug>(yankround-p)
 nmap P <Plug>(yankround-P)
@@ -53,3 +52,5 @@ nmap gP <Plug>(yankround-gP)
 nmap ˚ <Plug>(yankround-prev)
 " Alt+j
 nmap ∆ <Plug>(yankround-next)
+" Alt+y = \
+nnoremap <silent> \ :CtrlPYankRound<CR>

@@ -25,6 +25,7 @@ set modelines=5
 set mouse=niv
 set nofoldenable
 set number
+set pastetoggle=π " Alt+p
 set ruler
 set scrolloff=0
 set shiftwidth=2

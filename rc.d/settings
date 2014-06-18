@@ -57,3 +57,9 @@ autocmd BufNewFile,BufRead *.twig set filetype=html
 autocmd BufEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 autocmd BufLeave * setlocal nocursorline
 autocmd BufEnter * setlocal cursorline
+
+" Change cursor color regarding with IME status
+if has('multi_byte_ime') || has('xim')
+  highlight Cursor guifg=NONE guibg=White
+  highlight CursorIM guifg=NONE guibg=DarkRed
+end

@@ -8,7 +8,7 @@ To use this vim settings, all you have to do is
 cd
 git clone --recursive git://github.com/kuwabarahiroshi/.vim.git
 ln -s .vim/rc.d/.vimrc
-vim # -> installs plugin bundles automatically.
+vim # -> installs plugins automatically.
 ```
 
 That's it!
@@ -17,8 +17,7 @@ That's it!
 If you already have your own `~/.vim` directory, Please back it up beforehand.
 
 ## Plugins
-Plugins which I'm using are listed at:
 
-[rc.d/mod_bundles](rc.d/.mod_bundles)
+[rc.d/bundles](rc.d/bundles)
 
 To add plugins, please refer to [NeoBundle.vim](https://github.com/Shougo/neobundle.vim) guidance.

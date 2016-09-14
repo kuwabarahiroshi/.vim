@@ -1,7 +1,7 @@
 " vim:ft=vim
 
 inoremap <silent> <C-\> a<ESC>:call ToggleVerticalLineAtCursorColumn()<CR>a<BS>
-nnoremap <C-A> :call AckPrompt()<CR>
+nnoremap <leader>a :call AckPrompt()<CR>
 nnoremap <C-H> :tabp<CR>
 nnoremap <C-L> :tabn<CR>
 nnoremap <leader>ee :call ExecCurrentBuffer()<CR>
@@ -14,7 +14,8 @@ nnoremap <leader>src :source $HOME/.vimrc<CR>
 nnoremap <leader>t :call OpenInNewTab()<CR><C-W>l :NERDTreeFind<CR><C-W>l
 nnoremap <silent> <C-J> :m +1<CR>
 nnoremap <silent> <C-K> :m -2<CR>
-nnoremap <silent> <C-\> :call ToggleVerticalLineAtCursorColumn()<CR>
+nnoremap <silent> <C-\> :set cursorcolumn!<CR>
+nnoremap <silent> « :call ToggleVerticalLineAtCursorColumn()<CR>h " Alt+\
 nnoremap <silent> \| :call ToggleVerticalLineAtIdealColumn()<CR>
 nnoremap <silent> <F8> :NERDTreeToggle<CR>
 nnoremap <silent> <leader>cp :let f=expand("%:p")<CR>:q<CR>

@@ -30,4 +30,17 @@ let g:yankring_replace_n_nkey = 'cp'
 let g:gitgutter_diff_args = '-w'
 
 " auto enable vim-indent-guides
-let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+
+" ctrlp
+let g:ctrlp_custom_ignore = '\v[\/](\.git|node_modules)$'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+let g:ctrlp_prompt_mappings = {
+\ 'AcceptSelection("e")': ['<c-]>', '<2-LeftMouse>'],
+\ 'AcceptSelection("v")': ['<cr>', '<c-v>', '<RightMouse>'],
+\ }
+
+" jellybeans
+let g:jellybeans_overrides = {
+      \ 'LineNr': { 'ctermfg': 'red' }
+      \ }

@@ -5,7 +5,7 @@ set backspace=indent,eol,start
 set backup
 set backupdir=~/.vim/tmp/backup
 set clipboard=unnamedplus,unnamed
-set cursorline
+set nocursorline
 set diffopt+=iwhite
 set directory=~/.vim/tmp/swap
 set expandtab
@@ -18,6 +18,7 @@ set hlsearch
 set ignorecase
 set incsearch
 set laststatus=2
+set lazyredraw
 set list
 set listchars=tab:>-,trail:-,extends:<,precedes:<
 set modeline
@@ -39,9 +40,11 @@ set statusline=%t\ %y%{'['.(&fenc!=''?&fenc:&enc).':'.&ff.']'}%r%m%=%c:%l/%L
 set tabstop=2
 set tags=.tags;
 set title
+set ttyfast
 set undodir=~/.vim/tmp/undo
 set undofile
 set updatetime=500
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 set wrapscan
 
 " Misc
@@ -51,16 +54,29 @@ highlight StatusLine ctermbg=darkgray ctermfg=blue
 highlight SpecialKey ctermfg=darkgray
 filetype plugin indent on
 "autocmd BufEnter * execute ":lcd " . expand("%:p:h")
-autocmd FileType cs setlocal noexpandtab
-autocmd FileType php setlocal shiftwidth=4 tabstop=4
+"autocmd FileType cs setlocal noexpandtab
+"autocmd FileType php setlocal shiftwidth=4 tabstop=4 noexpandtab
+"autocmd FileType php setlocal shiftwidth=4 tabstop=4 expandtab
+autocmd FileType ruby setlocal foldmethod=indent
 autocmd FileType sh,cpp,perl,javascript,ruby,ruby.rspec,python,php,erlang,haskell,scheme setlocal textwidth=80
 autocmd BufNewFile,BufRead *.twig set filetype=html
 autocmd BufEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
-autocmd BufLeave * setlocal nocursorline
-autocmd BufEnter * setlocal cursorline
+"autocmd BufLeave * setlocal nocursorline
+"autocmd BufEnter * setlocal cursorline
+
+" vim-indent-guides
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=3
+"autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=4
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd guibg=green ctermbg=4
 
 " Change cursor color regarding with IME status
 if has('multi_byte_ime') || has('xim')
   highlight Cursor guifg=NONE guibg=White
   highlight CursorIM guifg=NONE guibg=DarkRed
 end
+
+" open non-text files in system viewer
+augroup nonvim
+   au!
+   au BufRead *.png,*.jpg,*.pdf,*.gif,*.xlsx,*.xls,*.ppt*,*.doc*,*.rtf sil exe "!open " . shellescape(expand("%:p")) | bd | let &ft=&ft
+augroup end

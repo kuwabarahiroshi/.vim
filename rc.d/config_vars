@@ -44,3 +44,6 @@ let g:ctrlp_prompt_mappings = {
 let g:jellybeans_overrides = {
       \ 'LineNr': { 'ctermfg': 'red' }
       \ }
+
+" vim-markdown
+let g:vim_markdown_new_list_item_indent = 2

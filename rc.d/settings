@@ -23,7 +23,8 @@ set list
 set listchars=tab:>-,trail:-,extends:<,precedes:<
 set modeline
 set modelines=5
-set mouse=niv
+set mouse=a
+set ttymouse=sgr
 set nofoldenable
 set number
 set pastetoggle=π " Alt+p
@@ -78,5 +79,5 @@ end
 " open non-text files in system viewer
 augroup nonvim
    au!
-   au BufRead *.png,*.jpg,*.pdf,*.gif,*.xlsx,*.xls,*.ppt*,*.doc*,*.rtf sil exe "!open " . shellescape(expand("%:p")) | bd | let &ft=&ft
+   au BufRead *.png,*.jpg,*.pdf,*.gif,*.xlsx,*.xls,*.ppt*,*.doc,*.docx,*.rtf sil exe "!open " . shellescape(expand("%:p")) | bd | let &ft=&ft
 augroup end

@@ -42,6 +42,14 @@ vnoremap <silent> <C-K> :m -2<CR>v '<
 vnoremap <silent> > > v '>
 vnoremap <silent> <C-\> <ESC>:call ToggleVerticalLineAtCursorColumn()<CR>gv
 vnoremap <silent> \| <ESC>:call ToggleVerticalLineAtIdealColumn()<CR>gv
+vnoremap <leader>t :!column -t<CR>v '>
+vnoremap <leader>s :! sqlformat --no-highlight<CR>v '>
+
+" Tabular
+"if exists(":Tabularize")
+  "vmap <leader>t :Tabularize /
+  "vmap <leader>t: :Tabularize /:\zs<CR>
+"endif
 
 " yankround
 nmap p <Plug>(yankround-p)

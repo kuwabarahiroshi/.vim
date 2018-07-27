@@ -47,3 +47,10 @@ let g:jellybeans_overrides = {
 
 " vim-markdown
 let g:vim_markdown_new_list_item_indent = 2
+
+
+let g:vdebug_options = {
+  \'path_maps': {
+    \"/var/www/html": "/Users/hiroshi/src/vs-wordpress"
+  \}
+\}

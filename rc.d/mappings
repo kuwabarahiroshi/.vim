@@ -31,6 +31,7 @@ noremap <silent> tp :tabp<CR>
 noremap N Nzz
 noremap n nzz
 noremap tt :tabnew .<CR>
+noremap <leader>w :cwindow<CR>
 vmap <leader>i1 <ESC><leader>i1 '< v '>
 vmap <leader>i2 <ESC><leader>i2 '< v '>
 vmap <leader>i3 <ESC><leader>i3 '< v '>
@@ -43,7 +44,7 @@ vnoremap <silent> > > v '>
 vnoremap <silent> <C-\> <ESC>:call ToggleVerticalLineAtCursorColumn()<CR>gv
 vnoremap <silent> \| <ESC>:call ToggleVerticalLineAtIdealColumn()<CR>gv
 vnoremap <leader>t :!column -t<CR>v '>
-vnoremap <leader>s :! sqlformat --no-highlight<CR>v '>
+vnoremap <leader>s :! sqlformat --no-highlight<CR>
 
 " Tabular
 "if exists(":Tabularize")

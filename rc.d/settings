@@ -50,7 +50,6 @@ set wrapscan
 
 " Misc
 syntax on
-colorscheme jellybeans
 highlight StatusLine ctermbg=darkgray ctermfg=blue
 highlight SpecialKey ctermfg=darkgray
 filetype plugin indent on

@@ -2,40 +2,21 @@
 
 " NeoBundle config
 if has('vim_starting')
-    " gocode
-    set rtp+=$GOROOT/misc/vim
-    exe "set rtp+=".globpath($GOPATH, "src/github.com/nsf/gocode/vim")
-
     " neobundle
     set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-"NeoBundle 'AndrewRadev/gapply.vim'
 NeoBundle 'digitaltoad/vim-pug'
-NeoBundle 'vim-scripts/vcscommand.vim'
 NeoBundle 'airblade/vim-gitgutter'
-"NeoBundle 'cohama/agit.vim'
-"NeoBundle 'fatih/vim-go'
-"NeoBundle 'godlygeek/tabular'
-"NeoBundle 'gregsexton/MatchTag'
-"NeoBundle 'groenewege/vim-less.git'
-""NeoBundle 'hsanson/vim-android'
-"NeoBundle 'ingydotnet/yaml-vim'
-NeoBundle 'joonty/vdebug'
-NeoBundle 'kchmck/vim-coffee-script'
+"NeoBundle 'joonty/vdebug'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'LeafCage/yankround.vim'
 NeoBundle 'leafgarland/typescript-vim'
 NeoBundle 'plasticboy/vim-markdown'
 NeoBundle 'mattn/emmet-vim'
-"NeoBundle 'mattn/webapi-vim'
 NeoBundle 'mileszs/ack.vim'
-NeoBundle 'nanotech/jellybeans.vim'
-"NeoBundle 'nathanaelkane/vim-indent-guides'
-"NeoBundle 'othree/yajs.vim'
-NeoBundle 'posva/vim-vue'
 NeoBundle 'scrooloose/nerdcommenter.git'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'scrooloose/syntastic'
@@ -46,22 +27,17 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 "NeoBundle 'Shougo/unite.vim'
 NeoBundle 'slim-template/vim-slim'
 "NeoBundle 'StanAngeloff/php.vim'
-"NeoBundle 'suan/vim-instant-markdown'
 "NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tpope/vim-endwise'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'tpope/vim-rails'
-""NeoBundle 'tpope/vim-sleuth'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'vim-ruby/vim-ruby'
 "NeoBundle 'vim-scripts/AnsiEsc.vim'
 NeoBundle 'vim-scripts/JSON.vim'
 NeoBundle 'vim-scripts/matchit.zip'
-"NeoBundle 'vim-scripts/SQLUtilities'
-"NeoBundle 'vim-scripts/SrcExpl'
 "NeoBundle 'vim-scripts/taglist.vim'
 "NeoBundle 'vim-scripts/Trinity'
-"NeoBundle 'wavded/vim-stylus'
 NeoBundle 'Xuyuanp/nerdtree-git-plugin'
 NeoBundle 'mxw/vim-jsx'
 

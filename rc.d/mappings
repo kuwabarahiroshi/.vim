@@ -44,7 +44,7 @@ vnoremap <silent> > > v '>
 vnoremap <silent> <C-\> <ESC>:call ToggleVerticalLineAtCursorColumn()<CR>gv
 vnoremap <silent> \| <ESC>:call ToggleVerticalLineAtIdealColumn()<CR>gv
 vnoremap <leader>t :!column -t<CR>v '>
-vnoremap <leader>s :! sqlformat --no-highlight<CR>
+vnoremap <leader>s :! npx sql-formatter-cli -i - -o -<CR>v}:s/ $// <CR>'<
 
 " Tabular
 "if exists(":Tabularize")
